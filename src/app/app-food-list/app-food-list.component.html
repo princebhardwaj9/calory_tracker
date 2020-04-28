@@ -1,0 +1,44 @@
+<div class="form">
+    <div class="add-fruit">
+        <p>Add New Food</p>
+        <div>
+            <label for="fruit-name">Name: </label>
+            <input type="text" [(ngModel)]="newFruit.name">
+        </div>
+        <div>
+            <label for="fruit-calory">Calories: </label>
+            <input type="number" [(ngModel)]="newFruit.calory">
+        </div>
+        <div>
+            <label for="fruit-image">Image: </label>
+            <input type="text" [(ngModel)]="newFruit.image">
+        </div>
+        <button (click)='addFruit(newFruit)'>Add Food</button>
+    </div>
+    <div class="tracker">
+        <p>Today's Foods {{todaycalory}} cal</p>
+        <ul>
+            <li *ngFor='let f of newFruit'>
+                {{f.name}}--{{f.calory}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ul class="fruit" *ngFor='let f of newFruit'>
+    <ul>
+        <li>
+            <img src="{{f.image}}" alt="img:{{f.name}}" width="120" height="120">
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <h3>{{f.name}}</h3>
+            <p>Calory-{{f.calory}}</p>
+        </li>
+        <li>
+            <input type="number" [(ngModel)]="value">
+            <button (click)='calculateCalory(value)'>Add</button>
+        </li>
+    </ul>
+</ul>
